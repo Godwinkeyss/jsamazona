@@ -1,3 +1,9 @@
+/* eslint-disable import/order */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable indent */
+/* eslint-disable import/newline-after-import */
+/* eslint-disable quotes */
+import Rating from '../conponents/Rating';
 import axios from 'axios';
 const HomeScreen = {
   render: async () => {
@@ -25,6 +31,12 @@ const HomeScreen = {
               <a href="/#/product/2">
                  ${product.name}
               </a>
+            </div>
+            <div class="product-rating">
+              ${Rating.render({
+                value: product.rating,
+                text: `${product.numReviews} reviews`,
+              })}
             </div>
             <div class="product-brand">
                   ${product.brand}
