@@ -1,19 +1,21 @@
-
+import axios from 'axios';
 const HomeScreen = {
-    render: async () =>{
-       
-        const response = await fetch("http://localhost:5000/api/products", {
-         headers:{
-            "Content-Type":"application/json",
-         }
-        })
-       if(!response || !response.ok) {
-         return `<div>Error in getting product</div>`;
-       }
-        const products = await response.json();
-      return`
+  render: async () => {
+    const response = await axios({
+      url: 'http://localhost:5000/api/products',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (!response || response.statusText !== 'OK') {
+      return `<div>Error in getting product</div>`;
+    }
+    const products = response.data;
+    return `
       <ul class="products">
-      ${products.map(product =>`
+      ${products
+        .map(
+          (product) => `
       <li>
          <div class="product">
            <a href="/#/product/${product._id}">
@@ -34,11 +36,10 @@ const HomeScreen = {
          </div>
      </li>
       `
-        
-        ).join('\n')}
+        )
+        .join('\n')}
       `;
-    },
+  },
 };
 
 export default HomeScreen;
- 
