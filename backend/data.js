@@ -20,6 +20,7 @@ export default {
         brand: 'Nike',
         rating: 5,
         numReviews: 51,
+        countInStock: 20,
       },
       {
         _id: '3',
@@ -30,6 +31,7 @@ export default {
         brand: 'Adidas',
         rating: 4,
         numReviews: 45,
+        countInStock: 60,
       },
       {
         _id: '4',
@@ -40,7 +42,7 @@ export default {
         brand: 'Under Armour',
         rating: 2.5,
         numReviews: 198,
-        countInStock: 6,
+        countInStock: 16,
       },
       {
         _id: '5',
@@ -73,7 +75,7 @@ export default {
         brand: 'Aelfric Eden',
         rating: 4.5,
         numReviews: 45,
-        countInStock: 6,
+        countInStock: 0,
       },
       {
         _id: '8',
