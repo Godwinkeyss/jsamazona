@@ -4,6 +4,12 @@ import { parseRequestUrl } from '../utils';
 import Rating from '../conponents/Rating';
 
 const productScreen = {
+  after_render: () => {
+    const request = parseRequestUrl();
+    document.getElementById('add-button').addEventListener('click', () => {
+      document.location.hash = `/cart/${request.id}`;
+    });
+  },
   render: async () => {
     const request = parseRequestUrl();
     const product = await getProduct(request.id);
@@ -49,9 +55,11 @@ const productScreen = {
                 </li>
                 <li>
                  Status :
-                 ${product.countInstock > 0 ? `<span class="success">In Stock</span>`:
-                  `<span class="error">Unavailable</span>`
-                }
+                 ${
+                   product.countInStock > 0
+                     ? `<span class="success">In Stock</span>`
+                     : `<span class="error">Unavailable</span>`
+                 }
                 </li>
                 <li>
                   <button class="primary fw" id="add-button">
