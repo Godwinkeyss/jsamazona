@@ -87,6 +87,7 @@ export default {
         rating: 5,
         numReviews: 65,
         countInStock: 6,
+        description: 'best pants',
       },
     ],
   };
